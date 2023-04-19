@@ -65,7 +65,7 @@ export default function Viewer() {
           decay={2}
           ref={pL2}
           color={color2PointLight}
-          position={[position2PointLight]}
+          position={position2PointLight}
           rotation={[-Math.PI / 2, 0, 0]}
         />
       </Suspense>
