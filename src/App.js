@@ -27,7 +27,7 @@ export default function Viewer() {
       step: 0.01,
     },
     intensity2PointLight: {
-      value: 1.5,
+      value: 0.6,
       min: 0,
       max: 5,
       step: 0.01,
