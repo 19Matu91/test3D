@@ -3,6 +3,7 @@ import { Canvas, useThree } from "@react-three/fiber";
 import { Environment, OrbitControls, useHelper } from "@react-three/drei";
 import { Model } from "./Model";
 import { useControls } from "leva";
+import * as THREE from 'three'
 
 export default function Viewer() {
   const ref = useRef();
@@ -10,8 +11,28 @@ export default function Viewer() {
   const pL2 = useRef();
   const canvas = useRef();
 
+  const ambientRef = useRef()
+
+  // useControls('Ambient Light', {
+  //   visible: {
+  //     value: false,
+  //     onChange: (v) => {
+  //       ambientRef.current.visible = v
+  //     }
+  //   },
+  //   color: {
+  //     value: 'white',
+  //     onChange: (v) => {
+  //       ambientRef?.current?.color = new THREE.Color(v)
+  //     }
+  //   }
+  // })
+  
+  // useEffect(() => {
+  //   console.log(ambientRef.current)
+  // }, [ambientRef])
+
   const {
-    fovCamera,
     envMapIntensity,
     intensity1PointLight,
     intensity2PointLight,
@@ -64,6 +85,7 @@ export default function Viewer() {
     >
       <Suspense fallback={null}>
         <Environment files="/Grad5_2k.hdr" />
+        {/* <ambientLight ref={ambientRef} /> */}
         <Model envMapIntensity={envMapIntensity} />
         <pointLight
           intensity={intensity1PointLight}
