@@ -6,7 +6,7 @@ import React, { useEffect, useRef } from "react";
 import { useGLTF, TransformControls } from "@react-three/drei";
 
 export function Model(props) {
-  const { nodes, materials } = useGLTF("/cupula_AO_BAKE_v2.gltf");
+  const { nodes, materials } = useGLTF("/Cupula_.gltf");
 
   const get = (material) => {
     material.envMapIntensity = props.envMapIntensity;
@@ -21,41 +21,41 @@ export function Model(props) {
             <mesh
               castShadow
               receiveShadow
-              geometry={nodes["Arboles3-Troncos001"].geometry}
-              material={get(materials["Troncos.001"])}
+              geometry={nodes["Arboles3-Arboles002"].geometry}
+              material={get(materials.Arboles)}
             />
             <mesh
               castShadow
               receiveShadow
-              geometry={nodes["Arboles3-Arboles001"].geometry}
-              material={get(materials.Arboles)}
+              geometry={nodes["Arboles3-Troncos002"].geometry}
+              material={get(materials["Troncos.001"])}
             />
           </group>
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Peana001.geometry}
-            material={get(materials["Terreno.1"])}
-            position={[23.58, -88.93, 12.39]}
-          />
-          <mesh
-            castShadow
-            receiveShadow
-            geometry={nodes.Carretera001.geometry}
+            geometry={nodes.Carretera002.geometry}
             material={get(materials["Carretera.1"])}
             position={[108.68, -40.43, 449.59]}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Edificios001.geometry}
+            geometry={nodes.Edificios002.geometry}
             material={get(materials["Material.001"])}
             position={[-75.52, 119.33, -204.58]}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Terreno001.geometry}
+            geometry={nodes.Peana002.geometry}
+            material={get(materials["Terreno.1"])}
+            position={[23.58, -88.93, 12.39]}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Terreno002.geometry}
             material={get(materials["Terreno.3"])}
             position={[23.58, -23.6, 12.39]}
           />

@@ -6,6 +6,7 @@
     "@types/three": "0.143.0",
     "leva": "^0.9.34",
     "postprocessing": "^6.31.0",
+    "r3f-perf": "^7.1.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "three": "0.143.0"
