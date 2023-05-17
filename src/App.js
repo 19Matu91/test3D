@@ -80,13 +80,13 @@ export default function Viewer() {
 
   return (
     <>
-      <div>
-        <h2 onClick={() => setSelect(5)}>ModelBunielIsla3</h2>
-        <h2 onClick={() => setSelect(4)}>ModelBunielIsla2</h2>
-        <h2 onClick={() => setSelect(3)}>ModelBunielIsla1</h2>
-        {/* <h2 onClick={() => setSelect(2)}>ModelBunielUrbanizacion</h2> */}
-        <h2 onClick={() => setSelect(1)}>ModelAlgarrobico</h2>
-        <h2 onClick={() => setSelect(0)}>ModelCupula</h2>
+      <div style={{ backgroundColor: 'salmon' }}>
+        <button onClick={() => setSelect(5)}>ModelBunielIsla3</button>
+        <button onClick={() => setSelect(4)}>ModelBunielIsla2</button>
+        <button onClick={() => setSelect(3)}>ModelBunielIsla1</button>
+        {/* <button onClick={() => setSelect(2)}>ModelBunielUrbanizacion</button> */}
+        <button onClick={() => setSelect(1)}>ModelAlgarrobico</button>
+        <button onClick={() => setSelect(0)}>ModelCupula</button>
       </div>
       <Canvas
         dpr={[1, 2]}
@@ -97,7 +97,7 @@ export default function Viewer() {
           near: 0.5,
           position: [-200, 500, 1500], // Esto OK para Garray, pero no para Algarrobico ni Buniel.
         }}
-        gl={{ logarithmicDepthBuffer: true}}
+        gl={{ logarithmicDepthBuffer: true }}
         style={{ background: "#1f1f1f" }}
       >
         <Perf position='bottom-right' />
