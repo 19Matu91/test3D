@@ -14,35 +14,35 @@ export default function ModelBunielIsla3(props) {
           castShadow
           receiveShadow
           geometry={nodes.Adosados1.geometry}
-          material={materials.Edificios}
+          material={props.get(materials.Edificios)}
           position={[16.54, 50.42, 33.33]}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Arbol3001.geometry}
-          material={materials.Matojos}
+          material={props.get(materials.Matojos)}
           position={[-23.04, 36.23, -15.19]}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Capa1001.geometry}
-          material={materials["Terreno.3"]}
+          material={props.get(materials["Terreno.3"])}
           position={[-9.62, -29.47, -22.84]}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Capa2001.geometry}
-          material={materials["Terreno.2"]}
+          material={props.get(materials["Terreno.2"])}
           position={[-8.64, -82.24, -21.28]}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Carreteras001.geometry}
-          material={materials["Carretera.002"]}
+          material={props.get(materials["Carretera.002"])}
           position={[-8.69, 6.6, -26.6]}
           scale={0.31}
         />
@@ -50,7 +50,7 @@ export default function ModelBunielIsla3(props) {
           castShadow
           receiveShadow
           geometry={nodes.Carreteras3.geometry}
-          material={materials.CARRETERA}
+          material={props.get(materials.CARRETERA)}
           position={[-8.69, 6.6, -26.6]}
           scale={0.31}
         />
@@ -58,7 +58,7 @@ export default function ModelBunielIsla3(props) {
           castShadow
           receiveShadow
           geometry={nodes.Escombros002.geometry}
-          material={materials.Matojos}
+          material={props.get(materials.Matojos)}
           position={[42.12, 11.84, 79.18]}
         />
       </group>

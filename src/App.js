@@ -81,6 +81,7 @@ export default function Viewer() {
           near: 0.5,
           position: [-200, 500, 1500], // Esto OK para Garray, pero no para Algarrobico ni Buniel.
         }}
+        gl={{ logarithmicDepthBuffer: true}}
         style={{ background: "#1f1f1f" }}
       >
         <Perf position='bottom-right' />

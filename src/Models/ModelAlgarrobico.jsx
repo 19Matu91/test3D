@@ -20,43 +20,43 @@ export default function ModelAlgarrobico(props) {
             castShadow
             receiveShadow
             geometry={nodes["Algarrobico-Edificios001"].geometry}
-            material={materials.Edificios}
+            material={props.get(materials.Edificios)}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes["Algarrobico-Ventanas007"].geometry}
-            material={materials["Ventanas.003"]}
+            material={props.get(materials["Ventanas.003"])}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes["Algarrobico-Ventanas008"].geometry}
-            material={materials["Ventanas.003"]}
+            material={props.get(materials["Ventanas.003"])}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes["Algarrobico-Ventanas009"].geometry}
-            material={materials["Ventanas.003"]}
+            material={props.get(materials["Ventanas.003"])}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes["Algarrobico-Ventanas010"].geometry}
-            material={materials["Ventanas.003"]}
+            material={props.get(materials["Ventanas.003"])}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes["Algarrobico-Ventanas011"].geometry}
-            material={materials["Ventanas.003"]}
+            material={props.get(materials["Ventanas.003"])}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes["Algarrobico-Ventanas012"].geometry}
-            material={materials["Ventanas.003"]}
+            material={props.get(materials["Ventanas.003"])}
           />
         </group>
         <group position={[1.63, 2.79, -1.09]}>
@@ -64,13 +64,13 @@ export default function ModelAlgarrobico(props) {
             castShadow
             receiveShadow
             geometry={nodes["Gruas-Gruas002"].geometry}
-            material={materials.Gruas}
+            material={props.get(materials.Gruas)}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes["Gruas-Gruas003"].geometry}
-            material={materials.Gruas}
+            material={props.get(materials.Gruas)}
           />
         </group>
         <group position={[-4.16, 0.89, 2.43]}>
@@ -78,21 +78,21 @@ export default function ModelAlgarrobico(props) {
             castShadow
             receiveShadow
             geometry={nodes["Matojos-Matojos001"].geometry}
-            material={materials.Matojos}
+            material={props.get(materials.Matojos)}
           />
         </group>
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Agua001.geometry}
-          material={materials.Agua}
+          material={props.get(materials.Agua)}
           position={[13.87, -5.22, 0.48]}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Carretera001.geometry}
-          material={materials["Carretera.004"]}
+          material={props.get(materials["Carretera.004"])}
           position={[-5.47, -0.44, 7.39]}
           rotation={[0, 0, -0.24]}
         />
@@ -100,21 +100,21 @@ export default function ModelAlgarrobico(props) {
           castShadow
           receiveShadow
           geometry={nodes.Carretera_Playa001.geometry}
-          material={materials["Carretera.004"]}
+          material={props.get(materials["Carretera.004"])}
           position={[8.9, -3.37, 1.12]}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Terreno003.geometry}
-          material={materials["Terreno.3"]}
+          material={props.get(materials["Terreno.3"])}
           position={[-10.99, -3.51, -5.38]}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Terreno002.geometry}
-          material={materials["Terreno.2"]}
+          material={props.get(materials["Terreno.2"])}
           position={[-10.99, -4.1, -5.38]}
         />
       </group>

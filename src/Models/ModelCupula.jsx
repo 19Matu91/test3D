@@ -16,41 +16,41 @@ export default function ModelCupula(props) {
               castShadow
               receiveShadow
               geometry={nodes["Arboles3-Arboles002"].geometry}
-              material={materials.Arboles}
+              material={props.get(materials.Arboles)}
             />
             <mesh
               castShadow
               receiveShadow
               geometry={nodes["Arboles3-Troncos002"].geometry}
-              material={materials["Troncos.001"]}
+              material={props.get(materials["Troncos.001"])}
             />
           </group>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Carretera002.geometry}
-            material={materials["Carretera.1"]}
+            material={props.get(materials["Carretera.1"])}
             position={[108.68, -40.43, 449.59]}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Edificios002.geometry}
-            material={materials["Material.001"]}
+            material={props.get(materials["Material.001"])}
             position={[-75.52, 119.33, -204.58]}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Peana002.geometry}
-            material={materials["Terreno.1"]}
+            material={props.get(materials["Terreno.1"])}
             position={[23.58, -88.93, 12.39]}
           />
           <mesh
             castShadow
             receiveShadow
             geometry={nodes.Terreno002.geometry}
-            material={materials["Terreno.3"]}
+            material={props.get(materials["Terreno.3"])}
             position={[23.58, -23.6, 12.39]}
           />
         </group>

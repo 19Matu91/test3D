@@ -14,12 +14,12 @@ export function Model(props) {
 
   return (
     <>
-      {props.select === 0 ? <ModelCupula /> :
-        props.select === 1 ? <ModelAlgarrobico /> :
+      {props.select === 0 ? <ModelCupula get={get} /> :
+        props.select === 1 ? <ModelAlgarrobico get={get} /> :
           // props.select === 2 ? <ModelBunielUrbanizacion /> :
-            props.select === 3 ? <ModelBunielIsla1 /> :
-              props.select === 4 ? <ModelBunielIsla2 /> :
-                <ModelBunielIsla3 />}
+          props.select === 3 ? <ModelBunielIsla1 get={get} /> :
+            props.select === 4 ? <ModelBunielIsla2 get={get} /> :
+              <ModelBunielIsla3 get={get} />}
     </>
   );
 }

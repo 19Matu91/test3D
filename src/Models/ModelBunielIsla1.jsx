@@ -14,14 +14,14 @@ export default function ModelBunielIsla1(props) {
           castShadow
           receiveShadow
           geometry={nodes.Arbol31.geometry}
-          material={materials.Matojos}
+          material={props.get(materials.Matojos)}
           position={[2496.47, 158.29, 1415.31]}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Carreteras1.geometry}
-          material={materials["Carretera.002"]}
+          material={props.get(materials["Carretera.002"])}
           position={[2388.83, 149.84, 1087.43]}
           scale={0.31}
         />
@@ -29,28 +29,28 @@ export default function ModelBunielIsla1(props) {
           castShadow
           receiveShadow
           geometry={nodes.Edificios.geometry}
-          material={materials.Edificios}
+          material={props.get(materials.Edificios)}
           position={[17.98, 190.17, 353.07]}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Escombros.geometry}
-          material={materials.Matojos}
+          material={props.get(materials.Matojos)}
           position={[2564, 166.81, 1319.34]}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes["Extrude*Capa2_terreno_remesh"].geometry}
-          material={materials["Terreno.3"]}
+          material={props.get(materials["Terreno.3"])}
           position={[-123.61, 59.27, 135.51]}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes["Extrude*Capa2_terreno_remesh1"].geometry}
-          material={materials["Terreno.2"]}
+          material={props.get(materials["Terreno.2"])}
           position={[-118, -4.35, 135.58]}
         />
       </group>
