@@ -24,8 +24,23 @@ export default function Viewer() {
     color2,
     position1,
     position2,
+    distanceScaling,
+    depthAwareUpsampling,
+    samples,
+    rings,
+    minRadiusScale,
+    radius,
+    distanceFalloff,
+    rangeFalloff,
+    distanceThreshold,
+    rangeThreshold,
+    luminanceInfluence,
+    scale,
     intensity,
-    samples
+    bias,
+    color,
+    fade,
+    resolutionScale
   } = useControls({
     'Luz1': folder({
       intensity1: {
@@ -63,18 +78,39 @@ export default function Viewer() {
       }
     }),
     'SSAO': folder({
-      intensity: {
-        value: 4,
-        min: 4,
-        max: 5,
-        step: 1,
+      distanceScaling: true,
+      depthAwareUpsampling: true,
+      samples: 128,
+      rings: 7,
+      minRadiusScale: 0.33,
+      radius: 0.1825,
+      distanceFalloff: {
+        value: 0.03,
+        max: 1,
+        min: 0
       },
-      samples: {
-        value: 128,
-        min: 128,
-        max: 256,
-        step: 128,
-      }
+      rangeFalloff: {
+        value: 0.03,
+        max: 1,
+        min: 0
+      },
+      distanceThreshold: {
+        value: 1,
+        max: 1,
+        min: 0
+      },
+      rangeThreshold: {
+        value: 0.5,
+        max: 1,
+        min: 0
+      },
+      luminanceInfluence: 0.7,
+      scale: 0.5,
+      intensity: 4,
+      bias: 0.025,
+      color: '#000000',
+      fade: 0.01,
+      resolutionScale: 1.0,
     })
   });
 
@@ -106,9 +142,23 @@ export default function Viewer() {
           <EffectComposer multisampling={0}>
             {/* <Glitch /> */}
             <SSAO
-              samples={intensity}
-              color={'#000000'}
-              intensity={samples}
+              distanceScaling={distanceScaling}
+              depthAwareUpsampling={depthAwareUpsampling}
+              samples={samples} // amount of samples per pixel (shouldn't be a multiple of the ring count)
+              rings={rings} // amount of rings in the occlusion sampling pattern
+              distanceThreshold={distanceThreshold} // global distance threshold at which the occlusion effect starts to fade out. min: 0, max: 1
+              distanceFalloff={distanceFalloff} // distance falloff. min: 0, max: 1
+              rangeThreshold={rangeThreshold} // local occlusion range threshold at which the occlusion starts to fade out. min: 0, max: 1
+              rangeFalloff={rangeFalloff} // occlusion range falloff. min: 0, max: 1
+              luminanceInfluence={luminanceInfluence} // how much the luminance of the scene influences the ambient occlusion
+              radius={radius} // occlusion sampling radius
+              scale={scale} // scale of the ambient occlusion
+              bias={bias} // occlusion bias
+              color={color}
+              minRadiusScale={minRadiusScale}
+              intensity={intensity}
+              fade={fade}
+              resolutionScale={resolutionScale}
             />
           </EffectComposer>
 
