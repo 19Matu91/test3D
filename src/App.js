@@ -23,7 +23,9 @@ export default function Viewer() {
     color1,
     color2,
     position1,
-    position2
+    position2,
+    intensity,
+    samples
   } = useControls({
     'Luz1': folder({
       intensity1: {
@@ -59,6 +61,20 @@ export default function Viewer() {
         max: 5,
         step: 0.01,
       }
+    }),
+    'SSAO': folder({
+      intensity: {
+        value: 4,
+        min: 4,
+        max: 5,
+        step: 1,
+      },
+      samples: {
+        value: 128,
+        min: 128,
+        max: 256,
+        step: 128,
+      }
     })
   });
 
@@ -90,9 +106,9 @@ export default function Viewer() {
           <EffectComposer multisampling={0}>
             {/* <Glitch /> */}
             <SSAO
-              samples={128}
+              samples={intensity}
               color={'#000000'}
-              intensity={4}
+              intensity={samples}
             />
           </EffectComposer>
 
