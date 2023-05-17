@@ -23,23 +23,7 @@ export default function Viewer() {
     color1,
     color2,
     position1,
-    position2,
-    distanceThreshold,
-    rangeThreshold,
-    luminanceInfluence,
-    scale,
-    intensity,
-    color,
-    distanceScaling,
-    depthAwareUpsampling,
-    rings,
-    samples, distanceFalloff,
-    rangeFalloff,
-    minRadiusScale,
-    bias,
-    fade,
-    radius,
-    resolutionScale
+    position2
   } = useControls({
     'Luz1': folder({
       intensity1: {
@@ -75,53 +59,18 @@ export default function Viewer() {
         max: 5,
         step: 0.01,
       }
-    }),
-    'SSAO': folder({
-      distanceScaling: true,
-      depthAwareUpsampling: true,
-      samples: 9,
-      rings: 7,
-      minRadiusScale: 0.33,
-      radius: 0.1825,
-      distanceFalloff: {
-        value: 0.03,
-        max: 1,
-        min: 0
-      },
-      rangeFalloff: {
-        value: 0.03,
-        max: 1,
-        min: 0
-      },
-      distanceThreshold: {
-        value: 1,
-        max: 1,
-        min: 0
-      },
-      rangeThreshold: {
-        value: 0.5,
-        max: 1,
-        min: 0
-      },
-      luminanceInfluence: 0.7,
-      scale: 0.5,
-      intensity: 1.0,
-      bias: 0.025,
-      color: '#53514e',
-      fade: 0.01,
-      resolutionScale: 1.0,
     })
   });
 
   return (
     <>
       <div>
-        <h1 onClick={() => setSelect(5)}>ModelBunielIsla3</h1>
-        <h1 onClick={() => setSelect(4)}>ModelBunielIsla2</h1>
-        <h1 onClick={() => setSelect(3)}>ModelBunielIsla1</h1>
-        <h1 onClick={() => setSelect(2)}>ModelBunielUrbanizacion</h1>
-        <h1 onClick={() => setSelect(1)}>ModelAlgarrobico</h1>
-        <h1 onClick={() => setSelect(0)}>ModelCupula</h1>
+        <h2 onClick={() => setSelect(5)}>ModelBunielIsla3</h2>
+        <h2 onClick={() => setSelect(4)}>ModelBunielIsla2</h2>
+        <h2 onClick={() => setSelect(3)}>ModelBunielIsla1</h2>
+        {/* <h2 onClick={() => setSelect(2)}>ModelBunielUrbanizacion</h2> */}
+        <h2 onClick={() => setSelect(1)}>ModelAlgarrobico</h2>
+        <h2 onClick={() => setSelect(0)}>ModelCupula</h2>
       </div>
       <Canvas
         dpr={[1, 2]}
@@ -140,23 +89,9 @@ export default function Viewer() {
           <EffectComposer multisampling={0}>
             {/* <Glitch /> */}
             <SSAO
-              distanceScaling={distanceScaling}
-              depthAwareUpsampling={depthAwareUpsampling}
-              samples={samples} // amount of samples per pixel (shouldn't be a multiple of the ring count)
-              rings={rings} // amount of rings in the occlusion sampling pattern
-              distanceThreshold={distanceThreshold} // global distance threshold at which the occlusion effect starts to fade out. min: 0, max: 1
-              distanceFalloff={distanceFalloff} // distance falloff. min: 0, max: 1
-              rangeThreshold={rangeThreshold} // local occlusion range threshold at which the occlusion starts to fade out. min: 0, max: 1
-              rangeFalloff={rangeFalloff} // occlusion range falloff. min: 0, max: 1
-              luminanceInfluence={luminanceInfluence} // how much the luminance of the scene influences the ambient occlusion
-              radius={radius} // occlusion sampling radius
-              scale={scale} // scale of the ambient occlusion
-              bias={bias} // occlusion bias
-              color={color}
-              minRadiusScale={minRadiusScale}
-              intensity={intensity}
-              fade={fade}
-              resolutionScale={resolutionScale}
+              samples={128}
+              color={'#000000'}
+              intensity={4}
             />
           </EffectComposer>
 
