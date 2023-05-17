@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useRef } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import { Canvas, useThree } from "@react-three/fiber";
 import { Environment, OrbitControls, useHelper } from "@react-three/drei";
 import { Model } from "./Model";
@@ -13,6 +13,8 @@ export default function Viewer() {
   const pL1 = useRef();
   const pL2 = useRef();
   const canvas = useRef();
+
+  const [select, setSelect] = useState(0)
 
   const {
     envMapIntensity,
@@ -112,64 +114,74 @@ export default function Viewer() {
   });
 
   return (
-    <Canvas
-      dpr={[1, 2]}
-      ref={canvas}
-      camera={{
-        far: 1000000,
-        fov: 35,
-        near: 0.5,
-        position: [-200, 500, 1500], // Esto OK para Garray, pero no para Algarrobico ni Buniel.
-      }}
-      style={{ background: "#1f1f1f" }}
-    >
-      <Perf position='bottom-right' />
-      <Suspense fallback={null}>
+    <>
+      <div>
+        <h1 onClick={() => setSelect(5)}>ModelBunielIsla3</h1>
+        <h1 onClick={() => setSelect(4)}>ModelBunielIsla2</h1>
+        <h1 onClick={() => setSelect(3)}>ModelBunielIsla1</h1>
+        <h1 onClick={() => setSelect(2)}>ModelBunielUrbanizacion</h1>
+        <h1 onClick={() => setSelect(1)}>ModelAlgarrobico</h1>
+        <h1 onClick={() => setSelect(0)}>ModelCupula</h1>
+      </div>
+      <Canvas
+        dpr={[1, 2]}
+        ref={canvas}
+        camera={{
+          far: 1000000,
+          fov: 35,
+          near: 0.5,
+          position: [-200, 500, 1500], // Esto OK para Garray, pero no para Algarrobico ni Buniel.
+        }}
+        style={{ background: "#1f1f1f" }}
+      >
+        <Perf position='bottom-right' />
+        <Suspense fallback={null}>
 
-        <EffectComposer multisampling={0}>
-          {/* <Glitch /> */}
-          <SSAO
-            distanceScaling={distanceScaling}
-            depthAwareUpsampling={depthAwareUpsampling}
-            samples={samples} // amount of samples per pixel (shouldn't be a multiple of the ring count)
-            rings={rings} // amount of rings in the occlusion sampling pattern
-            distanceThreshold={distanceThreshold} // global distance threshold at which the occlusion effect starts to fade out. min: 0, max: 1
-            distanceFalloff={distanceFalloff} // distance falloff. min: 0, max: 1
-            rangeThreshold={rangeThreshold} // local occlusion range threshold at which the occlusion starts to fade out. min: 0, max: 1
-            rangeFalloff={rangeFalloff} // occlusion range falloff. min: 0, max: 1
-            luminanceInfluence={luminanceInfluence} // how much the luminance of the scene influences the ambient occlusion
-            radius={radius} // occlusion sampling radius
-            scale={scale} // scale of the ambient occlusion
-            bias={bias} // occlusion bias
-            color={color}
-            minRadiusScale={minRadiusScale}
-            intensity={intensity}
-            fade={fade}
-            resolutionScale={resolutionScale}
+          <EffectComposer multisampling={0}>
+            {/* <Glitch /> */}
+            <SSAO
+              distanceScaling={distanceScaling}
+              depthAwareUpsampling={depthAwareUpsampling}
+              samples={samples} // amount of samples per pixel (shouldn't be a multiple of the ring count)
+              rings={rings} // amount of rings in the occlusion sampling pattern
+              distanceThreshold={distanceThreshold} // global distance threshold at which the occlusion effect starts to fade out. min: 0, max: 1
+              distanceFalloff={distanceFalloff} // distance falloff. min: 0, max: 1
+              rangeThreshold={rangeThreshold} // local occlusion range threshold at which the occlusion starts to fade out. min: 0, max: 1
+              rangeFalloff={rangeFalloff} // occlusion range falloff. min: 0, max: 1
+              luminanceInfluence={luminanceInfluence} // how much the luminance of the scene influences the ambient occlusion
+              radius={radius} // occlusion sampling radius
+              scale={scale} // scale of the ambient occlusion
+              bias={bias} // occlusion bias
+              color={color}
+              minRadiusScale={minRadiusScale}
+              intensity={intensity}
+              fade={fade}
+              resolutionScale={resolutionScale}
+            />
+          </EffectComposer>
+
+          <Environment files="/Grad5_2k.hdr" />
+          {/* <ambientLight ref={ambientRef} /> */}
+          <Model envMapIntensity={envMapIntensity} select={select} />
+          <pointLight
+            intensity={intensity1}
+            decay={2}
+            ref={pL1}
+            color={color1}
+            position={position1}
+            rotation={[-Math.PI / 2, 0, 0]}
           />
-        </EffectComposer>
-
-        <Environment files="/Grad5_2k.hdr" />
-        {/* <ambientLight ref={ambientRef} /> */}
-        <Model envMapIntensity={envMapIntensity} />
-        <pointLight
-          intensity={intensity1}
-          decay={2}
-          ref={pL1}
-          color={color1}
-          position={position1}
-          rotation={[-Math.PI / 2, 0, 0]}
-        />
-        <pointLight
-          intensity={intensity2}
-          decay={2}
-          ref={pL2}
-          color={color2}
-          position={position2}
-          rotation={[-Math.PI / 2, 0, 0]}
-        />
-      </Suspense>
-      <OrbitControls ref={ref} />
-    </Canvas>
+          <pointLight
+            intensity={intensity2}
+            decay={2}
+            ref={pL2}
+            color={color2}
+            position={position2}
+            rotation={[-Math.PI / 2, 0, 0]}
+          />
+        </Suspense>
+        <OrbitControls ref={ref} />
+      </Canvas>
+    </>
   );
 }
